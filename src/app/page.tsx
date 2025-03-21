@@ -1,103 +1,137 @@
+import Link from "next/link";
+import { type SanityDocument } from "next-sanity";
+import imageUrlBuilder from "@sanity/image-url";
+import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import { client } from "@/sanity/client";
+import Carousel from "@/components/Carousel";
+import InfoCard from "@/components/InfoCard";
+import { Suspense } from "react";
+import GraphicDesignSection from "@/components/GraphicDesignSection";
 import Image from "next/image";
+import FAQSection from "@/components/FAQSection";
+import ContactSection from "@/components/ContactSection";
+import { Metadata } from "next";
 
-export default function Home() {
+
+export const metadata: Metadata = {
+  title: "Hire Me for Graphic Design | YouTube Thumbnails, Posters & More",
+  description:
+    "Looking for high-quality graphic design? Hire me for YouTube thumbnails, posters, logos, social media graphics, business cards, and more. Professional designs, fast delivery!",
+  keywords:
+    "hire graphic designer, YouTube thumbnail design, poster design, logo design, social media graphics, business card design, custom designs, freelance graphic designer, affordable graphic design, digital artwork, professional design services",
+  openGraph: {
+    title: "Hire Me for Graphic Design | YouTube Thumbnails, Posters & More",
+    description:
+      "Need a professional graphic designer? I create stunning YouTube thumbnails, posters, logos, business cards, and more. Contact me today for high-quality custom designs!",
+    url: "https://yourwebsite.com",
+    type: "website",
+    images: [
+      {
+        url: "https://yourwebsite.com/preview-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Hire Me - Professional Graphic Design Services",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hire Me for Graphic Design | YouTube Thumbnails, Posters & More",
+    description:
+      "Get high-quality graphic designs for YouTube thumbnails, posters, logos, and more! Affordable prices and fast turnaround.",
+    images: ["https://yourwebsite.com/preview-image.jpg"],
+  },
+};
+const POSTS_QUERY = `*[
+  _type == "post"
+  && defined(slug.current)
+]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt, image}`;
+const { projectId, dataset } = client.config();
+const urlFor = (source: SanityImageSource) =>
+  projectId && dataset
+    ? imageUrlBuilder({ projectId, dataset }).image(source)
+    : null;
+const options = { next: { revalidate: 30 } };
+
+export default async function IndexPage() {
+  const posts = await client.fetch<SanityDocument[]>(POSTS_QUERY, {}, options);
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="w-full min-h-screen px-4 sm:px-6 lg:px-8 mt-20">
+
+<div className="flex flex-col lg:flex-row justify-center items-center lg:items-start gap-6 mb-8">
+        {/* Carousel Centered */}
+        <div className="w-full  flex justify-center mt-5">
+          <Carousel />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        {/* Info Card */}
+        {/* <InfoCard />
+        <InfoCard /> */}
+      </div>
+
+      <h1 className=" font-bold  flex justify-center text-6xl mt-5 bg-gradient-to-r from-violet-600 via-violet-600 to-indigo-600 bg-clip-text text-transparent">Graphic designs</h1>
+      <Suspense fallback={<p>Loading data...</p>}>
+      <ul className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full shadow-lg p-4 ">
+
+
+  {posts.map((post) => {
+    const postImageUrl = post.image ? urlFor(post.image)?.width(600).height(550).url() : null;
+
+    return (
+
+    
+      <li className="hover:underline hover:bg-white p-2 rounded-4xl hover:text-blue-400 hover:shadow-lg" key={post._id}>
+        <Link href={`/${post.slug.current}`}>
+          {postImageUrl && (
+            <img
+              src={postImageUrl}
+              alt={post.title}
+              className="rounded-lg w-full h-[450px] object-contain mb-2"
+              width="600"
+              height="550"
+              
+            
+            />
+          )}
+          <h2 className="text-xl font-semibold">{post.title}</h2>
+         
+        </Link>
+      </li>
+    );
+  })}
+</ul>
+</Suspense>
+<div className="flex justify-center mt-8  md:mt-15 ">
+        <Link href="/all-posts">
+          <button className="bg-blue-600 text-white px-6 cursor-pointer py-3 rounded-lg shadow-2xl hover:bg-blue-700 transition">
+            View All Posts
+          </button>
+        </Link>
+      </div>
+<section className="mt-5 md:mt-15">
+  <div>
+    <GraphicDesignSection/>
+  </div>
+</section>
+<section className="mt-5 md:mt-16" >
+  <div className="flex justify-center" >
+    <Image
+    src="/services.jpg"
+    alt="services"
+    width={1200}
+    height={1000}
+    className="rounded-lg shadow-lg "
+    />
+  </div>
+</section>
+
+<section>
+  <FAQSection/>
+  <ContactSection/>
+</section>
+
+    </main>
   );
 }
