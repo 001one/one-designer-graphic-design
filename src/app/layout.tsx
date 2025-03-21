@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/NavBar";
 import ScrollToTop from "@/components/ScrollToTop";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/react"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -62,8 +63,10 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
+        <Analytics />
         <ScrollToTop />
         <Footer />
+
       </body>
     </html>
   );
