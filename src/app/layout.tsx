@@ -26,11 +26,11 @@ export const metadata: Metadata = {
     title: "One Designers | Professional Graphic Design Services - Thumbnails, Posters & More",
     description:
       "Discover One Designers' high-quality graphic design services, based in Kenya, including YouTube thumbnails, posters, invitations, church cards, and more. Affordable pricing & quick turnaround!",
-    url: "https://yourwebsite.com",
+    url: "https://onedesignersdesign.com",
     type: "website",
     images: [
       {
-        url: "https://yourwebsite.com/preview-image.jpg",
+        url: "https://onedesignersdesign.com/preview-image.png",
         width: 1200,
         height: 630,
         alt: "One Designers - Graphic Design Services in Kenya",
@@ -42,9 +42,10 @@ export const metadata: Metadata = {
     title: "One Designers | Professional Graphic Design Services - Thumbnails, Posters & More",
     description:
       "One Designers, a Kenya-based design studio, provides stunning graphic design solutions for YouTube thumbnails, posters, invitations, church cards & more!",
-    images: ["https://yourwebsite.com/preview-image.jpg"],
+    images: ["https://onedesignersdesign.com/preview-image.png"],
   },
 };
+
 
 
 export default function RootLayout({

@@ -14,7 +14,7 @@ import { Metadata } from "next";
 
 
 export const metadata: Metadata = {
-  title: "Hire Me for Graphic Design | YouTube Thumbnails, Posters & More",
+  title: "One Designers | Hire Me for Graphic Design | YouTube Thumbnails, Posters & More",
   description:
     "Looking for high-quality graphic design? Hire me for YouTube thumbnails, posters, logos, social media graphics, business cards, and more. Professional designs, fast delivery!",
   keywords:
@@ -23,11 +23,11 @@ export const metadata: Metadata = {
     title: "Hire Me for Graphic Design | YouTube Thumbnails, Posters & More",
     description:
       "Need a professional graphic designer? I create stunning YouTube thumbnails, posters, logos, business cards, and more. Contact me today for high-quality custom designs!",
-    url: "https://yourwebsite.com",
+    url: "https://onedesignersdesign.com",
     type: "website",
     images: [
       {
-        url: "https://yourwebsite.com/preview-image.jpg",
+        url: "https://onedesignersdesign.com/preview-image.png",
         width: 1200,
         height: 630,
         alt: "Hire Me - Professional Graphic Design Services",
@@ -39,9 +39,10 @@ export const metadata: Metadata = {
     title: "Hire Me for Graphic Design | YouTube Thumbnails, Posters & More",
     description:
       "Get high-quality graphic designs for YouTube thumbnails, posters, logos, and more! Affordable prices and fast turnaround.",
-    images: ["https://yourwebsite.com/preview-image.jpg"],
+    images: ["https://onedesignersdesign.com/preview-image.png"],
   },
 };
+
 const POSTS_QUERY = `*[
   _type == "post"
   && defined(slug.current)

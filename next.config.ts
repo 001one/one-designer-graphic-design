@@ -7,12 +7,17 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  /* config options here */
   images: {
-    domains: ["instagram.com","cdn.sanity.io"
-  ]
+    domains: ["instagram.com", "cdn.sanity.io"],
   },
-
+  async rewrites() {
+    return [
+      {
+        source: "/sitemap.xml",
+        destination: "/api/sitemap",
+      },
+    ];
+  },
 };
 
 export default nextConfig;
