@@ -3,6 +3,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { client } from "@/sanity/client";
 import Link from "next/link";
+import { Metadata } from "next";
 
 const POST_QUERY = `*[_type == "post" && slug.current == $slug][0]`;
 
@@ -13,6 +14,20 @@ const urlFor = (source: SanityImageSource) =>
     : null;
 
 const options = { next: { revalidate: 30 } };
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const post = await client.fetch<SanityDocument>(POST_QUERY, params);
+
+  return {
+    title: post?.title || "Post Not Found",
+    description: post?.excerpt || "Explore our latest design insights and inspirations.",
+    openGraph: {
+      title: post?.title || "Post Not Found",
+      description: post?.excerpt || "Explore our latest design insights and inspirations.",
+      images: post?.image ? [{ url: urlFor(post.image)?.url() || "", alt: post.title }] : [],
+    },
+  };
+}
 
 export default async function PostPage({
   params,

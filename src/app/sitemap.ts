@@ -5,11 +5,12 @@ const BASE_URL = "https://onedesignersdesign.com";
 
 // Fetch blog posts from Sanity
 const fetchBlogPosts = async () => {
-  const query = `*[ _type == "post" && defined(slug.current) ]{ slug }`;
-  const posts = await client.fetch<{ slug: { current: string } }[]>(query);
+  const query = `*[_type == "post" && defined(slug.current)]{ slug, _updatedAt }`;
+  const posts = await client.fetch<{ slug: { current: string }; _updatedAt: string }[]>(query);
+  
   return posts.map((post) => ({
     url: `${BASE_URL}/${post.slug.current}`,
-    lastModified: new Date().toISOString(),
+    lastModified: new Date(post._updatedAt).toISOString(), // ✅ Use actual update date
   }));
 };
 
