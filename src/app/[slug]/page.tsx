@@ -46,17 +46,18 @@ export default async function PostPage({
           </Link>
       
           {/* Image and Details Wrapper */}
-          <div className="flex flex-col md:flex-row gap-8 items-start">
+        <div className="w-full max-w-3xl flex-col md:flex-row">
             {/* Image */}
+            <div>
             {postImageUrl && (
               <img
                 src={postImageUrl}
                 alt={post.title}
-                className="object-contain max-w-[1000px] h-[700px] rounded-lg"
+               className="w-full max-w-3xl h-auto object-cover rounded-lg"
                
               />
             )}
-      
+      </div>
             {/* Post Details */}
             <div className="flex flex-col justify-center">
               <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
