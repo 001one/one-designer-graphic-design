@@ -35,7 +35,7 @@ export default async function AllPostsPage() {
               <li className="hover:underline hover:bg-white p-2 rounded-lg hover:text-blue-400 hover:shadow-lg" key={post._id}>
                 <Link href={`/${post.slug.current}`}>
                   {postImageUrl && (
-                    <img src={postImageUrl} alt={post.title} className="rounded-lg w-full h-[450px] object-contain mb-2" />
+                    <img src={postImageUrl} alt={post.title} className="rounded-lg w-full h-auto max-h-[450px] object-cover sm:h-[350px] md:h-[400px] lg:h-[450px]" />
                   )}
                   <h2 className="text-xl font-semibold">{post.title}</h2>
                 </Link>

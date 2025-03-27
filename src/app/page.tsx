@@ -12,6 +12,9 @@ import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
 import { Metadata } from "next";
 import SidebarContent from "@/components/sidebarcontent";
+import FeaturedServices from "@/components/FeaturedServices";
+import Testimonials from "@/components/Testimonials";
+import CTA from "@/components/CTA";
 
 
 export const metadata: Metadata = {
@@ -75,6 +78,8 @@ export default async function IndexPage() {
 
 
       <h1 className=" font-bold  flex justify-center text-6xl mt-5 bg-gradient-to-r from-violet-600 via-violet-600 to-indigo-600 bg-clip-text text-transparent">Graphic designs</h1>
+      <FeaturedServices />
+      <CTA />
       <Suspense fallback={<p>Loading data...</p>}>
       <ul className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full shadow-lg p-4 ">
 
@@ -129,11 +134,14 @@ export default async function IndexPage() {
     />
   </div>
 </section>
-
+{/* Testimonials Section */}
+<Testimonials />
 <section>
   <FAQSection/>
   <ContactSection/>
 </section>
+  {/* New Call-to-Action Section */}
+  <CTA />
 
     </main>
   );
