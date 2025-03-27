@@ -11,7 +11,7 @@ const Navbar = () => {
     return (
         <>
             {/* Navbar Container */}
-            <div className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center p-4 lg:px-8 bg-white shadow-md mx-4 rounded-b-xl mt-1 mb-7 md:mb-2">
+            <div className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center p-4 lg:px-8 bg-white shadow-md mx-4 rounded-b-xl mt-1 mb-10 md:mb-2">
                 {/* Logo Section */}
              
                 <Link href="/" className="flex items-center bg-gradient-to-r from-violet-600 via-violet-600 to-indigo-600 bg-clip-text text-transparent  font-bold hover:text-blue-600 text-4xl md:text-5xl ">
@@ -70,7 +70,7 @@ const Navbar = () => {
                 {/* Contact Info */}
                 <div className="absolute bottom-6 w-full text-center text-gray-600">
                     Call or Text:{" "}
-                    <a href="tel:2134601310" className="text-blue-600 font-semibold">
+                    <a href="tel:0707200031" className="text-blue-600 font-semibold">
                         (254) 707200031
                     </a>
                 </div>
