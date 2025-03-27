@@ -11,6 +11,7 @@ import Image from "next/image";
 import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
 import { Metadata } from "next";
+import SidebarContent from "@/components/sidebarcontent";
 
 
 export const metadata: Metadata = {
@@ -60,17 +61,18 @@ export default async function IndexPage() {
   return (
 
     <main className="w-full min-h-screen px-4 sm:px-6 lg:px-8 mt-20">
-
 <div className="flex flex-col lg:flex-row justify-center items-center lg:items-start gap-6 mb-8">
-        {/* Carousel Centered */}
-        <div className="w-full  flex justify-center mt-5">
-          <Carousel />
-        </div>
+  {/* Carousel */}
+  <div className="w-full lg:w-3/4 flex justify-center mt-5">
+    <Carousel />
+  </div>
 
-        {/* Info Card */}
-        {/* <InfoCard />
-        <InfoCard /> */}
-      </div>
+  {/* Sidebar (Visible on Large Screens) */}
+  <div className="hidden lg:block w-1/4">
+    <SidebarContent />
+  </div>
+</div>
+
 
       <h1 className=" font-bold  flex justify-center text-6xl mt-5 bg-gradient-to-r from-violet-600 via-violet-600 to-indigo-600 bg-clip-text text-transparent">Graphic designs</h1>
       <Suspense fallback={<p>Loading data...</p>}>
@@ -89,7 +91,7 @@ export default async function IndexPage() {
             <img
               src={postImageUrl}
               alt={post.title}
-              className="rounded-lg w-full h-[450px] object-contain mb-2"
+              className="rounded-lg w-full h-auto max-h-[450px] object-cover sm:h-[350px] md:h-[400px] lg:h-[450px]"
               width="600"
               height="550"
               

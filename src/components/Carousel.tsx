@@ -18,7 +18,7 @@ const Carousel = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 4000); // Change every 3 seconds
+    }, 4000); // Change every 4 seconds
     return () => clearInterval(interval);
   }, [currentIndex]);
 
@@ -33,29 +33,28 @@ const Carousel = () => {
   };
 
   return (
-    <div className="relative w-full  mx-auto overflow-hidden rounded-lg shadow-lg">
-      {/* Image Slideshow (No Animation) */}
-      <div className="relative w-full h-94 md:h-180">
+    <div className="relative w-full max-w-screen-lg mx-auto overflow-hidden rounded-lg shadow-lg">
+      {/* Image Slideshow */}
+      <div className="relative w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[550px]">
         <Image
           src={images[currentIndex]}
           alt={`Slide ${currentIndex + 1}`}
-          fill={true}
-          objectFit="fill"
-          className="w-full"
+          fill
+          className="w-full h-full object-cover"
         />
       </div>
 
       {/* Navigation Buttons */}
       <button
         onClick={prevSlide}
-        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full"
+        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition"
       >
         <ChevronLeft size={24} />
       </button>
 
       <button
         onClick={nextSlide}
-        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full"
+        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition"
       >
         <ChevronRight size={24} />
       </button>
@@ -63,13 +62,12 @@ const Carousel = () => {
       {/* Dots Navigation */}
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
         {images.map((_, index) => (
-         <div
-         key={index}
-         className={`w-3 h-3 rounded-full transition-all duration-300 ${
-           index === currentIndex ? "bg-orange-500 scale-125" : "bg-gray-400"
-         }`}
-       />
-       
+          <div
+            key={index}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === currentIndex ? "bg-orange-500 scale-125" : "bg-gray-400"
+            }`}
+          />
         ))}
       </div>
     </div>
