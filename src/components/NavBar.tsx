@@ -59,7 +59,7 @@ const Navbar = () => {
                 {/* Mobile Navigation Links */}
                {/* Mobile Navigation Links */}
 <nav className="flex flex-col text-lg px-6 py-8 space-y-4">
-    <div className="flex justify-center text-bold text-blue-600">HEY</div>
+    <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-lg shadow-lg hover:scale-105 transition">Get your custom design</div>
     <Link href="#home" className="block text-gray-800 hover:text-blue-600" onClick={() => setIsOpen(false)}>Home</Link>
     <Link href="#about" className="block text-gray-800 hover:text-blue-600" onClick={() => setIsOpen(false)}>About</Link>
     <Link href="#contact" className="block text-gray-800 hover:text-blue-600" onClick={() => setIsOpen(false)}>Contact</Link>
@@ -71,7 +71,7 @@ const Navbar = () => {
                 <div className="absolute bottom-6 w-full text-center text-gray-600">
                     Call or Text:{" "}
                     <a href="tel:2134601310" className="text-blue-600 font-semibold">
-                        (213) 460-1310
+                        (254) 707200031
                     </a>
                 </div>
             </div>
