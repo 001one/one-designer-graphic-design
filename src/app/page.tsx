@@ -18,15 +18,15 @@ import CTA from "@/components/CTA";
 
 
 export const metadata: Metadata = {
-  title: "One Designers | Hire Me for Graphic Design | YouTube Thumbnails, Posters & More",
+  title: "NEEO Designers | Best Graphic Design Services – Thumbnails, Logos & More",
   description:
-    "Looking for high-quality graphic design? Hire me for YouTube thumbnails, posters, logos, social media graphics, business cards, and more. Professional designs, fast delivery!",
+    "Need professional graphic design? NEEO Designers create stunning YouTube thumbnails, posters, logos, business cards & more. High-quality, fast turnaround & affordable pricing!",
   keywords:
-    "hire graphic designer, YouTube thumbnail design, poster design, logo design, social media graphics, business card design, custom designs, freelance graphic designer, affordable graphic design, digital artwork, professional design services",
+    "graphic design services, hire graphic designer, custom logo design, YouTube thumbnails, poster design, branding services, print-ready graphics, business card design, social media graphics, professional design solutions, best graphic designer, affordable designs, digital artwork, website graphics, flyer design, banner ads, packaging design, Kenya graphic designer, international graphic design services",
   openGraph: {
-    title: "Hire Me for Graphic Design | YouTube Thumbnails, Posters & More",
+    title: "NEEO Designers | Professional Graphic Design Services",
     description:
-      "Need a professional graphic designer? I create stunning YouTube thumbnails, posters, logos, business cards, and more. Contact me today for high-quality custom designs!",
+      "Looking for expert graphic design? We offer premium YouTube thumbnails, social media graphics, posters, business cards, and custom branding solutions. Fast, high-quality designs!",
     url: "https://onedesignersdesign.com",
     type: "website",
     images: [
@@ -34,18 +34,19 @@ export const metadata: Metadata = {
         url: "https://onedesignersdesign.com/preview-image.png",
         width: 1200,
         height: 630,
-        alt: "Hire Me - Professional Graphic Design Services",
+        alt: "NEEO Designers - Professional Graphic Design Services",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hire Me for Graphic Design | YouTube Thumbnails, Posters & More",
+    title: "NEEO Designers | High-Quality Graphic Design Services",
     description:
-      "Get high-quality graphic designs for YouTube thumbnails, posters, logos, and more! Affordable prices and fast turnaround.",
+      "Stunning YouTube thumbnails, posters, logos, social media graphics & more. Affordable, professional designs with fast delivery. Order now!",
     images: ["https://onedesignersdesign.com/preview-image.png"],
   },
 };
+
 
 const POSTS_QUERY = `*[
   _type == "post"

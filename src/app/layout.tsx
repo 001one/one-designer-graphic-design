@@ -17,15 +17,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "One Designers | Professional Graphic Design Services - Thumbnails, Posters & More",
+  title: "NEEO Designers | Kenya’s Best Graphic Design Services – Thumbnails, Posters & More",
   description:
-    "One Designers, based in Kenya, offers premium graphic design services, including YouTube thumbnails, skin retouching, posters, invitation cards, church cards, and more. High-quality designs with fast delivery worldwide!",
+    "NEEO Designers is a top-rated graphic design studio based in Kenya, providing high-quality services worldwide. Whether you need YouTube thumbnails, skin retouching, posters, invitation cards, church cards, or social media graphics, we deliver stunning designs with fast turnaround at affordable rates.",
   keywords:
-    "One Designers, Kenya graphic design, YouTube thumbnails, skin retouching, invitation cards, church cards, poster design, social media graphics, logo design, professional design services",
+    "NEEO Designers, graphic design Kenya, Nairobi graphic designer, African graphic design services, hire designer in Kenya, global graphic design, YouTube thumbnail design Kenya, professional skin retouching, invitation card design Nairobi, church card designs Kenya, poster design services, social media branding Kenya, affordable design services Nairobi, digital artwork Kenya, logo design services Kenya, custom business graphics Africa, freelance graphic designer Kenya",
   openGraph: {
-    title: "One Designers | Professional Graphic Design Services - Thumbnails, Posters & More",
+    title: "NEEO Designers | Best Graphic Design Services in Kenya & Worldwide",
     description:
-      "Discover One Designers' high-quality graphic design services, based in Kenya, including YouTube thumbnails, posters, invitations, church cards, and more. Affordable pricing & quick turnaround!",
+      "Looking for a professional graphic designer in Kenya? NEEO Designers offers high-quality services for YouTube thumbnails, posters, business branding, and more. Fast delivery, affordable pricing, and premium designs – serving Nairobi, Kenya, and clients worldwide!",
     url: "https://onedesignersdesign.com",
     type: "website",
     images: [
@@ -33,15 +33,15 @@ export const metadata: Metadata = {
         url: "https://onedesignersdesign.com/preview-image.png",
         width: 1200,
         height: 630,
-        alt: "One Designers - Graphic Design Services in Kenya",
+        alt: "NEEO Designers - Top Graphic Design Services in Kenya",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "One Designers | Professional Graphic Design Services - Thumbnails, Posters & More",
+    title: "NEEO Designers | Kenya-Based Graphic Design for Clients Worldwide",
     description:
-      "One Designers, a Kenya-based design studio, provides stunning graphic design solutions for YouTube thumbnails, posters, invitations, church cards & more!",
+      "Need a skilled graphic designer in Kenya? NEEO Designers provides expert YouTube thumbnails, posters, branding, and more with quick, affordable service. Serving Nairobi, Africa, and global clients!",
     images: ["https://onedesignersdesign.com/preview-image.png"],
   },
 };
@@ -58,7 +58,7 @@ export default function RootLayout({
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="author" content="One Designers" />
+        <meta name="author" content="NEEO Designers" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

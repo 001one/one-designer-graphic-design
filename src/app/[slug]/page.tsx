@@ -19,15 +19,16 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const post = await client.fetch<SanityDocument>(POST_QUERY, params);
 
   return {
-    title: post?.title || "Post Not Found",
-    description: post?.excerpt || "Explore our latest design insights and inspirations.",
+    title: post?.title ? `NEEO Designer | ${post.title}` : "NEEO Designer | Post Not Found",
+    description: post?.excerpt ? `NEEO Designer - ${post.excerpt}` : "NEEO Designer - Explore our latest design insights and inspirations.",
     openGraph: {
-      title: post?.title || "Post Not Found",
-      description: post?.excerpt || "Explore our latest design insights and inspirations.",
+      title: post?.title ? `NEEO Designer | ${post.title}` : "NEEO Designer | Post Not Found",
+      description: post?.excerpt ? `NEEO Designer - ${post.excerpt}` : "NEEO Designer - Explore our latest design insights and inspirations.",
       images: post?.image ? [{ url: urlFor(post.image)?.url() || "", alt: post.title }] : [],
     },
   };
 }
+
 
 export default async function PostPage({
   params,

@@ -22,7 +22,7 @@ const Navbar = () => {
                 alt="logo"
                 className="object-contain shadow-2xl"
                 />
-                  ONE Designers 
+                  NEEO Designers 
                
                   <span className="text-orange-500 text-2xl ml-2 hover:text-blue-600">★</span>
                 </Link>

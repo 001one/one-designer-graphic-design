@@ -53,7 +53,7 @@ export default function Footer() {
 
         {/* Copyright Section */}
         <div className="text-center text-gray-500 text-sm mt-8 border-t border-gray-700 pt-4">
-          <p>&copy; {new Date().getFullYear()} Your Name. All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} NEEEO designers. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
