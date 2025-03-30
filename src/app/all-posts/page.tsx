@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { client } from "@/sanity/client";
 import { type SanityDocument } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
@@ -31,11 +32,19 @@ export default async function AllPostsPage() {
         <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 w-full shadow-lg p-4">
           {posts.map((post) => {
             const postImageUrl = post.image ? urlFor(post.image)?.width(600).height(550).url() : null;
+            
             return (
               <li className="hover:underline hover:bg-white p-2 rounded-lg hover:text-blue-400 hover:shadow-lg" key={post._id}>
                 <Link href={`/${post.slug.current}`}>
                   {postImageUrl && (
-                    <img src={postImageUrl} alt={post.title} className="rounded-lg w-full h-auto max-h-[450px] object-cover sm:h-[350px] md:h-[400px] lg:h-[450px]" />
+                    <Image 
+                      src={postImageUrl} 
+                      alt={post.title} 
+                      className="rounded-lg w-full h-auto max-h-[450px] object-cover sm:h-[350px] md:h-[400px] lg:h-[450px]" 
+                      width={600} 
+                      height={550} 
+                      priority // Ensures important images load faster (remove if not needed)
+                    />
                   )}
                   <h2 className="text-xl font-semibold">{post.title}</h2>
                 </Link>

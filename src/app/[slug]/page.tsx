@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { PortableText, type SanityDocument } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
@@ -29,43 +30,43 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-
 export default async function PostPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const post = await client.fetch<SanityDocument>(POST_QUERY, await params, options);
-  const postImageUrl = post.image
-    ? urlFor(post.image)?.url()
-    : null;
+  const postImageUrl = post.image ? urlFor(post.image)?.url() : null;
 
-    return (
-        <main className="container mx-auto min-h-screen  p-8 flex flex-col gap-4 mt-15">
-          <Link href="/" className="hover:underline">
-            ← Back to posts
-          </Link>
-      
-          {/* Image and Details Wrapper */}
-        <div className="w-full max-w-3xl flex-col md:flex-row">
-            {/* Image */}
-            <div>
-            {postImageUrl && (
-              <img
-                src={postImageUrl}
-                alt={post.title}
-               className="w-full max-w-3xl h-auto object-cover rounded-lg"
-               
-              />
-            )}
+  return (
+    <main className="container mx-auto min-h-screen p-8 flex flex-col gap-4 mt-15">
+      <Link href="/" className="hover:underline">
+        ← Back to posts
+      </Link>
+
+      {/* Image and Details Wrapper */}
+      <div className="w-full max-w-3xl flex-col md:flex-row">
+        {/* Image */}
+        <div>
+          {postImageUrl && (
+            <Image
+              src={postImageUrl}
+              alt={post.title}
+              className="w-full max-w-3xl h-auto object-cover rounded-lg"
+              width={800} // Adjust based on your layout needs
+              height={500} // Adjust based on your layout needs
+              priority // Helps with performance (remove if not needed)
+            />
+          )}
+        </div>
+
+        {/* Post Details */}
+        <div className="flex flex-col justify-center">
+          <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
+          <p className="text-gray-600">Published: {new Date(post.publishedAt).toLocaleDateString()}</p>
+          {Array.isArray(post.body) && <PortableText value={post.body} />}
+        </div>
       </div>
-            {/* Post Details */}
-            <div className="flex flex-col justify-center">
-              <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
-              <p className="text-gray-600">Published: {new Date(post.publishedAt).toLocaleDateString()}</p>
-              {Array.isArray(post.body) && <PortableText value={post.body} />}
-            </div>
-          </div>
-        </main>
-      );
+    </main>
+  );
 }

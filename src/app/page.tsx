@@ -17,6 +17,7 @@ import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
 
 
+
 export const metadata: Metadata = {
   title: "NEEO Designers | Best Graphic Design Services – Thumbnails, Logos & More",
   description:
@@ -82,30 +83,24 @@ export default async function IndexPage() {
       <FeaturedServices />
       <CTA />
       <Suspense fallback={<p>Loading data...</p>}>
-      <ul className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full shadow-lg p-4 ">
-
-
+      <ul className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full shadow-lg p-4">
   {posts.map((post) => {
     const postImageUrl = post.image ? urlFor(post.image)?.width(600).height(550).url() : null;
 
     return (
-
-    
       <li className="hover:underline hover:bg-white p-2 rounded-4xl hover:text-blue-400 hover:shadow-lg" key={post._id}>
         <Link href={`/${post.slug.current}`}>
           {postImageUrl && (
-            <img
+            <Image
               src={postImageUrl}
               alt={post.title}
               className="rounded-lg w-full h-auto max-h-[450px] object-cover sm:h-[350px] md:h-[400px] lg:h-[450px]"
-              width="600"
-              height="550"
-              
-            
+              width={600}
+              height={550}
+              priority // Helps with performance (remove if not needed)
             />
           )}
           <h2 className="text-xl font-semibold">{post.title}</h2>
-         
         </Link>
       </li>
     );
