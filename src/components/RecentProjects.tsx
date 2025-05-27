@@ -1,23 +1,26 @@
 import Image from "next/image";
-// import React from "react";
+import Link from "next/link";
 
 interface Project {
   title: string;
   image: string;
+  link: string;
 }
 
 const projects: Project[] = [
   {
     title: "E-commerce Flower App",
     image: "/project1.jpg",
+    link: "https://www.happierparadiseflorist.com/",
   },
   {
     title: "Graphic Design Mobile UI",
     image: "/project2.jpg",
+    link: "https://www.onedesignersdesign.com/",
   },
 ];
 
-const RecentProjects: React.FC = () => {
+const RecentProjects = () => {
   return (
     <section className="px-6 md:px-16 py-16 bg-white mt-30 md:mt-10">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
@@ -26,9 +29,12 @@ const RecentProjects: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         {projects.map((project, index) => (
-          <div
+          <Link
             key={index}
-            className="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition"
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transform transition duration-300 hover:scale-105 rounded-xl overflow-hidden shadow-md hover:shadow-xl block"
           >
             <div className="relative w-full aspect-[4/3]">
               <Image
@@ -39,9 +45,9 @@ const RecentProjects: React.FC = () => {
               />
             </div>
             <div className="p-4">
-              <h3 className="text-xl font-semibold">{project.title}</h3>
+              <h3 className="text-2xl font-semibold text-orange-600 active:text-blue-600 hover:text-blue-600 transition duration-300">{project.title}</h3>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>

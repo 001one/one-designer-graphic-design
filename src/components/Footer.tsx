@@ -3,7 +3,7 @@ import { Mail, Phone, Instagram, Dribbble,  } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer  className="bg-gray-900 text-gray-300 py-10 mt-10 md:mt-20">
+    <footer  className="bg-gray-900 text-gray-300 py-10 mt-10 md:mt-20 mb-10">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           

@@ -8,7 +8,7 @@ export default function ContactSection() {
           Get in Touch
         </h2>
         <p className="text-gray-400 mb-8">
-          If you're in Kenya, feel free to <span className="text-green-400 font-semibold">call or WhatsApp</span> me anytime!  
+        <span className="text-green-400 font-semibold"></span> 
           Let's bring your design ideas to life. 🚀
         </p>
 
@@ -32,7 +32,7 @@ export default function ContactSection() {
           >
             <MessageCircle className="w-6 h-6 text-white" />
             <span>WhatsApp</span>
-            <span>0707200031</span>
+            <span>+254707200031</span>
           </a>
 
           {/* Phone Contact */}
