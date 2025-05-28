@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
 
       {/* Left Content */}
       <div className="md:w-1/2 space-y-6 text-center md:text-left">
-        <div className="md:text-8xl font-light italic leading-none lg:ml-80 md:whitespace-nowrap text-5xl ">
+        <div className="md:text-8xl font-light italic leading-none xl:ml-80 2xl:ml-170 md:whitespace-nowrap text-5xl ">
           <span>Hey,</span> <span className="not-italic lg:ml-70">there</span>
         </div>
 
@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
 
   {/* Description below image on mobile, absolutely positioned on md+ */}
   <div className="text-2xl font-bold text-black max-w-xs text-center mt-4 
-                  md:absolute md:bottom-4 md:right-4 md:text-left md:mt-10">
+                  lg:absolute lg:bottom-4 lg:right-4 lg:text-left lg:mt-10">
     Specialized in Web Design, Backend and Front End Development, UX / UI, Webflow,
   </div>
 </div>

@@ -27,7 +27,7 @@ const RecentProjects = () => {
         RECENT PROJECTS
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-15">
         {projects.map((project, index) => (
           <Link
             key={index}
