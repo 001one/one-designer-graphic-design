@@ -22,7 +22,8 @@ export const metadata: Metadata = {
     "NEEO Designers is a top-rated graphic design studio based in Kenya, providing high-quality services worldwide. Whether you need YouTube thumbnails, skin retouching, posters, invitation cards, church cards, or social media graphics, we deliver stunning designs with fast turnaround at affordable rates.",
   keywords:
     "NEEO Designers, graphic design Kenya, Nairobi graphic designer, African graphic design services, hire designer in Kenya, global graphic design, YouTube thumbnail design Kenya, professional skin retouching, invitation card design Nairobi, church card designs Kenya, poster design services, social media branding Kenya, affordable design services Nairobi, digital artwork Kenya, logo design services Kenya, custom business graphics Africa, freelance graphic designer Kenya",
-  openGraph: {
+ metadataBase: new URL("https://onedesignersdesign.com"),
+    openGraph: {
     title: "NEEO Designers | Best Graphic Design Services in Kenya & Worldwide",
     description:
       "Looking for a professional graphic designer in Kenya? NEEO Designers offers high-quality services for YouTube thumbnails, posters, business branding, and more. Fast delivery, affordable pricing, and premium designs – serving Nairobi, Kenya, and clients worldwide!",
@@ -60,6 +61,14 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="author" content="NEEO Designers" />
         <meta name="robots" content="index, follow, noarchive" />
+          <link rel="icon" href="/favicon.ico" sizes="any" />
+
+
+          
+        {/* Add Favicon Links */}
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon-32x32.png" sizes="32x32" />
+        <link rel="icon" href="/favicon-16x16.png" sizes="16x16" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

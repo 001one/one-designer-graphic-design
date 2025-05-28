@@ -24,6 +24,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE_URL}/services`, lastModified: new Date().toISOString() },
     { url: `${BASE_URL}/contact`, lastModified: new Date().toISOString() },
     { url: `${BASE_URL}/portfolio`, lastModified: new Date().toISOString() },
+    { url: `${BASE_URL}/webdesigner`, lastModified: new Date().toISOString()  }
+
   ];
 
   return [...staticPages, ...posts];
