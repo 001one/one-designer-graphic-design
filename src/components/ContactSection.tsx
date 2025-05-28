@@ -12,7 +12,7 @@ export default function ContactSection() {
           Let's bring your design ideas to life. 🚀
         </p>
 
-        <div className="flex flex-col sm:flex-row justify-center gap-6">
+        <div className="flex flex-col justify-center gap-6">
           {/* Email Contact */}
           <a
             href="mailto:ericone141@gmail.com"

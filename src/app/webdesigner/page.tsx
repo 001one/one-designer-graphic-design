@@ -10,7 +10,7 @@ import WorkstationSection from "@/components/WorkstationSection";
 
 const page = () => {
   return (
-    <div className="mt-30">
+    <div className="mt-15">
       <Hero />
       <RecentProjects />
        <HelpSection />

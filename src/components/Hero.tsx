@@ -2,12 +2,13 @@ import Image from "next/image";
 
 const Hero: React.FC = () => {
   return (
-    <section className=" flex flex-col md:flex-row items-center justify-between px-6 md:px-16 py-12 bg-gradient-to-b from-white via-[#f5b979] to-[#ffffff]">
-      
+ <section className="flex flex-col lg:flex-row items-center justify-between px-6 md:px-16 py-12 bg-gradient-to-b from-white via-[#f5b979] to-[#ffffff]">
+
+
       {/* Left Content */}
       <div className="md:w-1/2 space-y-6 text-center md:text-left">
-        <div className="md:text-8xl font-light italic leading-none md:ml-120 md:whitespace-nowrap text-5xl ">
-          <span>Hey,</span> <span className="not-italic md:ml-70">there</span>
+        <div className="md:text-8xl font-light italic leading-none lg:ml-80 md:whitespace-nowrap text-5xl ">
+          <span>Hey,</span> <span className="not-italic lg:ml-70">there</span>
         </div>
 
         <h1 className="text-5xl md:text-6xl font-bold leading-tight">
@@ -26,19 +27,24 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Right Image */}
-      <div className="md:w-1/2 mt-10 md:mt-0 relative flex justify-center items-center ">
-        <Image
-          src="/profile.png"
-          alt="Madison"
-          width={450}
-          height={800}
-          className="w-auto md:h-[800px] object-cover h-[500px]  md:mr-250"
-          priority
-        />
-        <div className="absolute bottom-4 right-4 text-2xl font-bold text-black max-w-xs md:text-black top-130">
-          Specialized in Web Design,Backend and Front End Development, UX / UI, Webflow, 
-        </div>
-      </div>
+     {/* Right Image + Description */}
+<div className="md:w-1/2 mt-10 md:mt-0 flex flex-col items-center justify-center relative">
+  <Image
+    src="/profile.png"
+    alt="Madison"
+    width={450}
+    height={800}
+    className="w-full max-w-[650px] h-auto object-contain md:w-[600px] lg:mr-150"
+    priority
+  />
+
+  {/* Description below image on mobile, absolutely positioned on md+ */}
+  <div className="text-2xl font-bold text-black max-w-xs text-center mt-4 
+                  md:absolute md:bottom-4 md:right-4 md:text-left md:mt-10">
+    Specialized in Web Design, Backend and Front End Development, UX / UI, Webflow,
+  </div>
+</div>
+
     </section>
   );
 };
