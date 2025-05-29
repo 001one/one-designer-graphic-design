@@ -16,21 +16,21 @@ const testimonials: Testimonial[] = [
     role: "CEO, BrightTech",
     image: "/testimonial1.jpg",
     quote:
-      "Working with Madison was a breeze. The design exceeded our expectations and delivered on time!",
+      "Working with Erick was a breeze. The design exceeded our expectations and delivered on time!",
   },
   {
     name: "James Carter",
     role: "Product Manager, FlowUI",
     image: "/testimonial2.jpg",
     quote:
-      "Madison truly understands UX. Our conversion rates improved dramatically after the redesign.",
+      "Erick truly understands UX. Our conversion rates improved dramatically after the redesign.",
   },
   {
     name: "Sofia Lee",
     role: "Founder, Creativa Studio",
     image: "/testimonial3.jpg",
     quote:
-      "Professional, creative, and detail-oriented — Madison is an asset to any design project.",
+      "Professional, creative, and detail-oriented — Erick is an asset to any design project.",
   },
 ];
 
