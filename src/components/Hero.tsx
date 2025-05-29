@@ -12,7 +12,7 @@ const Hero: React.FC = () => {
         </div>
 
         <h1 className="text-5xl md:text-6xl font-bold leading-tight">
-          I AM <br /> <span className="text-black">MADISON</span>
+          I AM <br /> <span className="text-black">ERICK</span>
         </h1>
 
         <p className="text-xl font-semibold text-right md:text-left">

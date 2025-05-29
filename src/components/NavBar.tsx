@@ -29,7 +29,7 @@ const Navbar = () => {
 
                 {/* Centered Navigation Links (Hidden on Mobile) */}
                 <nav className="hidden lg:flex space-x-8 text-lg p-4">
-                    {["Home", "About", "Contact"].map((item) => (
+                    {["Home", "Send Me A Message", "Contact"].map((item) => (
                         <div key={item} className="relative group">
                             <Link href={`#${item.toLowerCase()}`} className="relative z-10 text-gray-800 px-4 py-2 transition-colors duration-300 group-hover:text-white">
                                 {item}
@@ -61,7 +61,7 @@ const Navbar = () => {
 <nav className="flex flex-col text-lg px-6 py-8 space-y-4">
     <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-lg shadow-lg hover:scale-105 transition">Get your custom design</div>
     <Link href="#home" className="block text-gray-800 hover:text-blue-600" onClick={() => setIsOpen(false)}>Home</Link>
-    <Link href="#about" className="block text-gray-800 hover:text-blue-600" onClick={() => setIsOpen(false)}>About</Link>
+    <Link href="#send me a message" className="block text-gray-800 hover:text-blue-600" onClick={() => setIsOpen(false)}>Send Me a Message</Link>
     <Link href="#contact" className="block text-gray-800 hover:text-blue-600" onClick={() => setIsOpen(false)}>Contact</Link>
 
 </nav>
