@@ -1,3 +1,4 @@
+import ClientMessageForm from "@/components/ClientMessageForm";
 import ContactSection from "@/components/ContactSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import HelpSection from "@/components/HelpSection";
@@ -68,7 +69,8 @@ const page = () => {
        <WorkstationSection />
        <Testimonials/>
        <WebDevFAQSection />
-       <ContactSection/>
+     
+             {/* <ClientMessageForm /> */}
     </div>
   )
 }

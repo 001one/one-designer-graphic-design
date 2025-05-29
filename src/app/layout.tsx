@@ -5,6 +5,8 @@ import Navbar from "@/components/NavBar";
 import ScrollToTop from "@/components/ScrollToTop";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/react"
+import ClientMessageForm from "@/components/ClientMessageForm";
+import ContactSection from "@/components/ContactSection";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,35 +19,55 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NEEO Designers | Kenya’s Best Graphic Design Services – Thumbnails, Posters & More",
+  metadataBase: new URL("https://www.onedesignersdesign.com"),
+  title: "NEEO Designers | Web & Graphic Design Services – Thumbnails, Websites, Branding & More",
   description:
-    "NEEO Designers is a top-rated graphic design studio based in Kenya, providing high-quality services worldwide. Whether you need YouTube thumbnails, skin retouching, posters, invitation cards, church cards, or social media graphics, we deliver stunning designs with fast turnaround at affordable rates.",
-  keywords:
-    "NEEO Designers, graphic design Kenya, Nairobi graphic designer, African graphic design services, hire designer in Kenya, global graphic design, YouTube thumbnail design Kenya, professional skin retouching, invitation card design Nairobi, church card designs Kenya, poster design services, social media branding Kenya, affordable design services Nairobi, digital artwork Kenya, logo design services Kenya, custom business graphics Africa, freelance graphic designer Kenya",
- metadataBase: new URL("https://onedesignersdesign.com"),
-    openGraph: {
-    title: "NEEO Designers | Best Graphic Design Services in Kenya & Worldwide",
+    "NEEO Designers offers professional web and graphic design services — from custom websites and UI/UX to YouTube thumbnails, branding, posters, and more. High-quality, creative design solutions delivered with speed and style.",
+  keywords: [
+    "NEEO Designers",
+    "web design services",
+    "graphic design studio",
+    "UI/UX design",
+    "portfolio website designer",
+    "branding and logo design",
+    "freelance web developer",
+    "poster and flyer design",
+    "social media graphics",
+    "responsive website design",
+    "creative design agency",
+    "YouTube thumbnail design",
+    "professional web designer",
+    "digital design services",
+  ],
+  authors: [{ name: "NEEO Designers" }],
+  creator: "NEEO Designers",
+  openGraph: {
+    title: "NEEO Designers | Creative Web & Graphic Design Services Worldwide",
     description:
-      "Looking for a professional graphic designer in Kenya? NEEO Designers offers high-quality services for YouTube thumbnails, posters, business branding, and more. Fast delivery, affordable pricing, and premium designs – serving Nairobi, Kenya, and clients worldwide!",
-    url: "https://onedesignersdesign.com",
+      "Explore NEEO Designers' portfolio of web and graphic design work — websites, branding, thumbnails, posters, and more. We deliver bold, polished designs that meet real business needs.",
+    url: "https://www.onedesignersdesign.com",
     type: "website",
+    siteName: "NEEO Designers",
     images: [
       {
-        url: "https://onedesignersdesign.com/preview-image.png",
+        url: "/preview-image.png", // Ensure this file is in the /public folder
         width: 1200,
         height: 630,
-        alt: "NEEO Designers - Top Graphic Design Services in Kenya",
+        alt: "NEEO Designers - Web and Graphic Design Preview",
       },
     ],
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "NEEO Designers | Kenya-Based Graphic Design for Clients Worldwide",
+    title: "NEEO Designers | Web & Graphic Design Solutions for Brands Worldwide",
     description:
-      "Need a skilled graphic designer in Kenya? NEEO Designers provides expert YouTube thumbnails, posters, branding, and more with quick, affordable service. Serving Nairobi, Africa, and global clients!",
-    images: ["https://onedesignersdesign.com/preview-image.png"],
+      "Need standout web and graphic design? NEEO Designers creates websites, thumbnails, posters, and digital branding that capture attention and convert. Fast delivery, stunning results.",
+    creator: "@yourhandle", // Replace with your actual Twitter/X handle if available
+    images: ["/preview-image.png"],
   },
 };
+
 
 
 
@@ -76,6 +98,8 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Analytics />
+        <ClientMessageForm/>
+          <ContactSection/>
         <ScrollToTop />
         <Footer />
 
