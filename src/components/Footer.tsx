@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Mail, Phone, Instagram, Dribbble,  } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -50,10 +51,32 @@ export default function Footer() {
             </div>
           </div>
         </div>
+                
+{/* Developer Credit */}
+<div className="flex flex-col md:flex-row items-center justify-center gap-2 mt-10 text-sm text-gray-400">
+  <span>Website by</span>
+  <a
+    href="https://www.onedesignersdesign.com/webdesigner"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center gap-1 hover:text-blue-400"
+  >
+    <Image
+      src="/logo.png"
+      alt="Neeo Designers Logo"
+      width={20}
+      height={20}
+      className="rounded-full"
+    />
+     <span className="relative bg-gradient-to-r from-white via-blue-400 to-white bg-clip-text text-transparent animate-pulse">
 
+      Neeo Designers
+    </span>
+  </a>
+</div>
         {/* Copyright Section */}
         <div className="text-center text-gray-500 text-sm mt-8 border-t border-gray-700 pt-4">
-          <p>&copy; {new Date().getFullYear()} NEEEO designers. All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} NEEEO designers Co. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
