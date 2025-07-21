@@ -5,6 +5,7 @@ import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { client } from "@/sanity/client";
 import Link from "next/link";
 import { Metadata } from "next";
+import Body from "@/components/(upwork portofolio)/Body";
 
 const POST_QUERY = `*[_type == "post" && slug.current == $slug][0]`;
 
@@ -64,8 +65,13 @@ export default async function PostPage({
         <div className="flex flex-col justify-center">
           <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
           <p className="text-gray-600">Published: {new Date(post.publishedAt).toLocaleDateString()}</p>
-          {Array.isArray(post.body) && <PortableText value={post.body} />}
-        </div>
+ {Array.isArray(post?.body) && post.body.length > 0 ? (
+            <Body blocks={post.body} />
+          ) : (
+            <p className="text-gray-500 italic">
+              No content available for this post.
+            </p>
+          )}        </div>
       </div>
     </main>
   );

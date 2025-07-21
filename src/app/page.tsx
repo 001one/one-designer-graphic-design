@@ -49,10 +49,19 @@ export const metadata: Metadata = {
 };
 
 
-const POSTS_QUERY = `*[
-  _type == "post"
-  && defined(slug.current)
-]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt, image}`;
+const GRAPHIC_CATEGORY_POSTS_QUERY = `
+  *[_type == "category" && slug.current == "graphic-design"][0]{
+    title,
+    "posts": *[_type == "post" && references(^._id)] | order(publishedAt desc)[0...12]{
+      _id,
+      title,
+      slug,
+      publishedAt,
+      image
+    }
+  }
+`;
+
 const { projectId, dataset } = client.config();
 const urlFor = (source: SanityImageSource) =>
   projectId && dataset
@@ -61,7 +70,9 @@ const urlFor = (source: SanityImageSource) =>
 const options = { next: { revalidate: 30 } };
 
 export default async function IndexPage() {
-  const posts = await client.fetch<SanityDocument[]>(POSTS_QUERY, {}, options);
+const data = await client.fetch(GRAPHIC_CATEGORY_POSTS_QUERY, {}, options);
+const posts = data?.posts || [];
+
 
   return (
 
@@ -84,7 +95,7 @@ export default async function IndexPage() {
       <CTA />
       <Suspense fallback={<p>Loading data...</p>}>
       <ul className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full shadow-lg p-4">
-  {posts.map((post) => {
+  {posts.map((post: SanityDocument) => {
     const postImageUrl = post.image ? urlFor(post.image)?.width(600).height(550).url() : null;
 
     return (
