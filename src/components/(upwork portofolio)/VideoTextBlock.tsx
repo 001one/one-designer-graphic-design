@@ -13,11 +13,11 @@ export default function VideoTextBlock({ text }: VideoTextBlockProps) {
       </p>
 
     
-      <div className="flex gap-4 mt-10">
+      <div className="flex gap-4 mt-10 ">
         {/* Primary Link */}
         <Link
           href="/my-blender-3d-projects/videos"
-           className="active:text-white active:bg-blue-600 text-black hover:text-white hover:bg-blue-600 font-semibold p-5 rounded-full flex items-center gap-2 group transition duration-300 whitespace-nowrap"
+           className="active:text-white active:bg-blue-600 text-black hover:text-white hover:bg-blue-600 font-semibold p-5 rounded-full flex items-center gap-2 group transition duration-300 whitespace-nowrap  bg-blue-500"
         > 
           Watch Our Full Videos
           <ArrowRight className="w-7 h-7 transform transition-transform duration-300 group-hover:translate-x-3" />

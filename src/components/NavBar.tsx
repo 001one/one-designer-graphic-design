@@ -1,82 +1,99 @@
-'use client'
+"use client";
 
 import { useState } from "react";
 import Link from "next/link";
-import { X, Menu } from "lucide-react";
 import Image from "next/image";
+import { ArrowRight, Menu, X } from "lucide-react";
 
 const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-    return (
-        <>
-            {/* Navbar Container */}
-            <div className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center p-4 lg:px-8 bg-white shadow-md mx-4 rounded-b-xl mt-1 mb-10 md:mb-2 hover:shadow-2xl">
-                {/* Logo Section */}
+  const navigation = [
+    { name: "Home", href: "#home" },
+    { name: "Send me an Email", href: "/#send me a message" },
+   
+    { name: "About Us", href: "/#about" },
+  ];
+
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md my-2 rounded-lg hover:shadow-2xl ">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4 md:px-6">
+        {/* Logo */}
+        <Link href="/" className="flex items-center space-x-2">
+          <Image
+            src="/logo.png"
+            alt="OpticOdds Logo"
+            width={60}
+            height={60}
+            className="object-contain"
+          />
+          <span className="md:text-5xl text-3xl font-bold text-gray-900 hover:text-blue-500 active:text-blue-500 ">NEEO</span>
+        </Link>
+
+        {/* Navigation Links */}
+        <nav className="hidden md:flex space-x-6">
+          {navigation.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className="text-gray-700 hover:text-white  hover:bg-blue-500  hover:rounded-lg  transition-colors duration-200 hover:scale-110 p-3"
+            >
+              {item.name}
+            </Link>
+          ))}
+        </nav>
+
+        {/* Call-to-Action Button */}
+     <div className="hidden md:block">
+  <Link
+    href="/my-blender-3d-projects/videos"
+    className="group bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all duration-200 shadow hover:shadow-2xl flex items-center gap-2 whitespace-nowrap  hover:scale-110"
+  >
+   My Blender 3D Projects YouTube videos
+    <ArrowRight className="w-5 h-5 transform transition-transform duration-300 group-hover:translate-x-5" />
+  </Link>
+</div>
+
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden text-gray-700 hover:text-blue-600"
+          aria-label="Toggle menu"
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Navigation Menu */}
+      {isOpen && (
+        <div className="md:hidden bg-white shadow-md">
+          <nav className="flex flex-col space-y-2 px-4 py-4">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                onClick={() => setIsOpen(false)}
+                className="text-gray-700 hover:text-white hover:bg-blue-500 p-2 hover:scale-105 hover:rounded-lg transition-colors duration-200"
+              >
+                {item.name}
+              </Link>
+            ))}
+            <Link
+              href="/my-blender-3d-projects/videos"
+              onClick={() => setIsOpen(false)}
+              className="group bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all duration-200 shadow hover:shadow-2xl flex items-center gap-2 whitespace-nowrap  "
+  >
+   My Blender 3D Projects YouTube videos
+    <ArrowRight className="w-5 h-5 transform transition-transform duration-300 group-hover:translate-x-5 hover:Scale-155" />
+            
              
-                <Link href="#home" className="flex items-center bg-gradient-to-r from-violet-600 via-violet-600 to-indigo-600 bg-clip-text text-transparent  font-bold hover:text-blue-600 text-xl md:text-5xl ">
-                <Image
-                src="/logo.png"
-                width={50}
-                height={50}
-                alt="logo"
-                className="object-contain shadow-2xl"
-                />
-                  NEEO Designers 
-               
-                  <span className="text-orange-500 md:text-2xl ml-2 hover:text-blue-600 text-xs ">★</span>
-                </Link>
-
-                {/* Centered Navigation Links (Hidden on Mobile) */}
-                <nav className="hidden lg:flex space-x-8 text-lg p-4">
-                    {["Home", "Send Me A Message", "Contact"].map((item) => (
-                        <div key={item} className="relative group">
-                            <Link href={`#${item.toLowerCase()}`} className="relative z-10 text-gray-800 px-4 py-2 transition-colors duration-300 group-hover:text-white">
-                                {item}
-                            </Link>
-                            {/* Light Blue Rounded Box Hover Effect */}
-                            <div className="absolute inset-0 bg-blue-400 opacity-0 group-hover:opacity-100 rounded-lg transition-opacity duration-300 p-6"></div>
-                        </div>
-                    ))}
-                </nav>
-
-                {/* Mobile Menu Button */}
-                <button onClick={() => setIsOpen(true)} className="lg:hidden p-2 text-black hover:text-blue-600 cursor-pointer">
-                    <Menu size={28} />
-                </button>
-            </div>
-
-            {/* Mobile Sidebar Menu */}
-            {isOpen && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={() => setIsOpen(false)}></div>
-            )}
-
-            <div className={`fixed top-0 right-0 h-full w-3/4 bg-white shadow-lg z-50 transform ${isOpen ? "translate-x-0" : "translate-x-full"} transition-transform duration-300 ease-in-out`}>
-                <button onClick={() => setIsOpen(false)} className="absolute top-4 right-4 text-black hover:text-blue-600 cursor-pointer">
-                    <X size={28} />
-                </button>
-
-                {/* Mobile Navigation Links */}
-               {/* Mobile Navigation Links */}
-<nav className="flex flex-col text-lg px-6 py-8 space-y-4">
-    <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-lg shadow-lg hover:scale-105 transition">Get your custom design</div>
-    <Link href="#home" className="block text-gray-800 hover:text-blue-600" onClick={() => setIsOpen(false)}>Home</Link>
-    <Link href="#send me a message" className="block text-gray-800 hover:text-blue-600" onClick={() => setIsOpen(false)}>Send Me a Message</Link>
-    <Link href="#contact" className="block text-gray-800 hover:text-blue-600" onClick={() => setIsOpen(false)}>Contact</Link>
-
-</nav>
-
-
-                {/* Contact Info */}
-                <div className="absolute bottom-6 w-full text-center text-gray-600">
-                    Call or Text:{" "}
-                    <a href="tel:0707200031" className="text-blue-600 font-semibold">
-                        (254) 707200031
-                    </a>
-                </div>
-            </div>
-        </>
-    );
-}
+            </Link>
+          </nav>
+        </div>
+      )}
+    </header>
+  );
+};
 
 export default Navbar;
