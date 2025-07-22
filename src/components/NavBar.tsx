@@ -19,7 +19,7 @@ const Navbar = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md my-2 rounded-lg hover:shadow-2xl ">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4 md:px-6">
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2">
+        <Link href="#home" className="flex items-center space-x-2">
           <Image
             src="/logo.png"
             alt="OpticOdds Logo"
