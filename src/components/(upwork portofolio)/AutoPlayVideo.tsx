@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 let allVideos: HTMLVideoElement[] = [];
 
@@ -12,7 +12,6 @@ interface AutoPlayVideoProps {
   width?: string;
 }
 
-
 export default function AutoPlayVideo({
   src,
   poster,
@@ -21,24 +20,40 @@ export default function AutoPlayVideo({
   width = 'w-full md:w-[500px]',
 }: AutoPlayVideoProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [shouldLoad, setShouldLoad] = useState(false);
 
   useEffect(() => {
     const videoEl = videoRef.current;
     if (!videoEl) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoad(true); // Load the video src
+          observer.disconnect(); // Only load once
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(videoEl);
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Once video is loaded, add playback logic
+  useEffect(() => {
+    const videoEl = videoRef.current;
+    if (!videoEl || !shouldLoad) return;
 
     allVideos.push(videoEl);
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // Pause all other videos
           allVideos.forEach((vid) => {
-            if (vid !== videoEl) {
-              vid.pause();
-            }
+            if (vid !== videoEl) vid.pause();
           });
-
-          // Play current
           videoEl.play().catch((err) => console.warn('Autoplay failed:', err));
         } else {
           videoEl.pause();
@@ -53,19 +68,19 @@ export default function AutoPlayVideo({
       observer.disconnect();
       allVideos = allVideos.filter((vid) => vid !== videoEl);
     };
-  }, []);
+  }, [shouldLoad]);
 
   return (
     <video
       ref={videoRef}
-      src={src}
-      poster={poster}
+      poster={poster || '/poster.png'}
       muted
       playsInline
-      preload="auto"
-      controls={false}
       loop
-       className={`rounded-xl object-cover ring-2 ring-gray-300 ${width} ${height} ${className}`}
+      controls={false}
+      preload="none"
+      className={`rounded-xl object-cover ring-2 ring-gray-300 ${width} ${height} ${className}`}
+      {...(shouldLoad ? { src } : {})}
     />
   );
 }
