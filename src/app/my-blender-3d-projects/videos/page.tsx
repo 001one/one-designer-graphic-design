@@ -6,6 +6,7 @@ import { Suspense } from "react";
 import { ArrowLeft } from "lucide-react";
 import Body from "@/components/(upwork portofolio)/Body";
 import { SanityDocument } from "next-sanity";
+import BackButton from "@/components/(upwork portofolio)/BackButton";
 
 
 
@@ -30,9 +31,9 @@ export default async function BlenderProjectPage() {
       <h1 className="text-4xl font-bold text-center text-blue-600 mb-6">Blender Project Videos</h1>
 
       <div className="flex justify-end mb-6">
-        <Link href="/my-blender-3d-projects" className="group inline-flex items-center space-x-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:underline">
-          <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-          <span className="text-lg font-semibold">Back to Home</span>
+        <Link href="/my-blender-3d-projects" className="group inline-flex items-center space-x-2  text-white px-4 py-2 rounded-lg hover:underline">
+          {/* <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" /> */}
+          <BackButton/>
         </Link>
       </div>
 

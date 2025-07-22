@@ -41,23 +41,42 @@ const page = () => {
           <h2 className="text-2xl font-semibold mb-4 text-center">
             Intro Video
           </h2>
+          <Suspense>
 <VideoSection
   src="/intro.mp4"
   poster="/poster.png"
   text="Explore how Kirinyaga University students use animation to promote responsible computing. Watch our intro video and see how storytelling meets technology."
 />
+</Suspense>
+        
+        <Suspense>
           <VideoSection
-    src="/intro.mp4"
+    src="/vid/33.mp4"
     poster="/poster.png"
     text="Experience the finest floral arrangements with same-day delivery in Nairobi. Watch our introduction video to see what makes us unique."
     reverse
  />
+
+       </Suspense>
+
+       <Suspense>
           <VideoSection
-    src="/intro.mp4"
+    src="/vid/222.mp4"
     poster="/poster.png"
     text="Experience the finest floral arrangements with same-day delivery in Nairobi. Watch our introduction video to see what makes us unique."
    
  />
+        </Suspense>
+       <Suspense>
+          <VideoSection
+    src="/vid/111.mp4"
+    poster="/poster.png"
+    text="Experience the finest floral arrangements with same-day delivery in Nairobi. Watch our introduction video to see what makes us unique."
+    reverse
+ />
+        </Suspense>
+
+
         </div>  
         
         
