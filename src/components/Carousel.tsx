@@ -33,16 +33,17 @@ const Carousel = () => {
   };
 
   return (
-    <div className="relative w-full max-w-screen-lg mx-auto overflow-hidden rounded-lg shadow-lg">
+<div className="relative w-full h-[250px] sm:h-[300px] md:h-[450px] lg:h-screen overflow-hidden rounded-lg shadow-lg mx-auto">
       {/* Image Slideshow */}
-      <div className="relative w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[550px]">
-        <Image
-          src={images[currentIndex]}
-          alt={`Slide ${currentIndex + 1}`}
-          fill
-          className="w-full h-full object-cover"
-        />
-      </div>
+<div className="relative w-full h-full">
+  <Image
+    src={images[currentIndex]}
+    alt={`Slide ${currentIndex + 1}`}
+    fill
+    className="object-cover"
+  />
+</div>
+
 
       {/* Navigation Buttons */}
       <button

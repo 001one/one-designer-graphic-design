@@ -11,24 +11,26 @@ import { Suspense } from "react";
 const page = () => {
   return (
     
-    <main className="w-full min-h-screen px-4 sm:px-6 lg:px-8 mt-30 ">
+<main className="w-full min-h-screen mt-30 px-2">
     <Suspense>
      <div className="hidden lg:flex justify-between items-start gap-6 mb-8">
   
     {/* <div className="w-1/4">
           <CategorySidebar/>
     </div> */}
-      <div className="w-1/2 flex justify-center">
-          <Carousel />
-        </div>
+    <div className="w-full min-h-[75vh] flex justify-center items-center">
+  <Carousel />
+</div>
+
          {/* <div className="w-1/4">
           <SidebarContent />
         </div> */}
        </div>
        {/* Carousel for Small Screens */}
-      <div className="lg:hidden flex justify-center">
-        <Carousel />
-      </div>
+      <div className="lg:hidden">
+  <Carousel />
+</div>
+
       <h1 className="font-bold flex justify-center md:text-6xl text-3xl mt-5 bg-gradient-to-r from-violet-600 via-violet-600 to-indigo-600 bg-clip-text text-transparent">
   EDUCATING THROUGH ANIMATION – KIRINYAGA UNIVERSITY
 </h1>

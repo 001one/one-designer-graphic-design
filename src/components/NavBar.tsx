@@ -16,15 +16,15 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md my-2 rounded-lg hover:shadow-2xl ">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4 md:px-6">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md my-2 rounded-lg hover:shadow-2xl  ">
+      <div className="max-w-7xl  flex items-center justify-between px-4 py-4 md:px-6">
         {/* Logo */}
         <Link href="#home" className="flex items-center space-x-2">
           <Image
             src="/logo.png"
             alt="OpticOdds Logo"
-            width={60}
-            height={60}
+            width={50}
+            height={50}
             className="object-contain"
           />
           <span className="md:text-5xl text-3xl font-bold  hover:text-blue-500 text-blue-500 hover:shadow-lg active:text-amber-300 ">NEEO</span>

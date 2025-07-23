@@ -12,7 +12,7 @@ interface AutoPlayYouTubeProps {
 export default function AutoPlayYouTube({
   videoId,
   className = '',
-  height = 'h-[300px]',
+  height = 'h-[500px]',
   width = 'w-full md:w-[500px]',
 }: AutoPlayYouTubeProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
