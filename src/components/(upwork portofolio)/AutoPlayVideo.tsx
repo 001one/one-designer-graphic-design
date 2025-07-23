@@ -60,25 +60,26 @@ export default function AutoPlayYouTube({
       ref={containerRef}
       className={`relative overflow-hidden rounded-xl ring-2 ring-gray-300 ${width} ${height} ${className}`}
     >
-    <>
+ <div className="relative w-full h-full">
   <iframe
     ref={iframeRef}
     src={embedUrl}
-    className={`w-full h-full transition-opacity duration-300 ${
-      isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
-    }`}
+    className="w-full h-full"
     allow="autoplay"
     allowFullScreen
     title="Autoplay YouTube Video"
   />
   {!isVisible && (
-    <img
-      src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
-      alt="Video thumbnail"
-      className="absolute inset-0 w-full h-full object-cover"
-    />
+    <div className="absolute inset-0 z-10">
+      <img
+        src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
+        alt="Video thumbnail"
+        className="w-full h-full object-cover"
+      />
+    </div>
   )}
-</>
+</div>
+
 
     </div>
   );
