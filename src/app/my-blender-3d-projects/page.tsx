@@ -15,15 +15,15 @@ const page = () => {
     <Suspense>
      <div className="hidden lg:flex justify-between items-start gap-6 mb-8">
   
-    <div className="w-1/4">
+    {/* <div className="w-1/4">
           <CategorySidebar/>
-    </div>
+    </div> */}
       <div className="w-1/2 flex justify-center">
           <Carousel />
         </div>
-         <div className="w-1/4">
+         {/* <div className="w-1/4">
           <SidebarContent />
-        </div>
+        </div> */}
        </div>
        {/* Carousel for Small Screens */}
       <div className="lg:hidden flex justify-center">
@@ -41,40 +41,36 @@ const page = () => {
           <h2 className="text-2xl font-semibold mb-4 text-center">
             Intro Video
           </h2>
-          <Suspense>
-<VideoSection
-  src="/intro.mp4"
-  poster="/poster.png"
-  text="Explore how Kirinyaga University students use animation to promote responsible computing. Watch our intro video and see how storytelling meets technology."
-/>
-</Suspense>
-        
         <Suspense>
-          <VideoSection
-    src="/vid/33.mp4"
-    poster="/poster.png"
+  <VideoSection
+    videoId="EVhjfNgcrIU"
+    text="Explore how Kirinyaga University students use animation to promote responsible computing. Watch our intro video and see how storytelling meets technology."
+  />
+</Suspense>
+
+<Suspense>
+  <VideoSection
+    videoId="NUv86BCLN7U"
     text="Experience the finest floral arrangements with same-day delivery in Nairobi. Watch our introduction video to see what makes us unique."
     reverse
- />
+  />
+</Suspense>
 
-       </Suspense>
-
-       <Suspense>
-          <VideoSection
-    src="/vid/222.mp4"
-    poster="/poster.png"
+<Suspense>
+  <VideoSection
+    videoId="DR5gizDUILA"
     text="Experience the finest floral arrangements with same-day delivery in Nairobi. Watch our introduction video to see what makes us unique."
-   
- />
-        </Suspense>
-       <Suspense>
-          <VideoSection
-    src="/vid/111.mp4"
-    poster="/poster.png"
+  />
+</Suspense>
+
+<Suspense>
+  <VideoSection
+    videoId="YOUTUBE_ID_4"
     text="Experience the finest floral arrangements with same-day delivery in Nairobi. Watch our introduction video to see what makes us unique."
     reverse
- />
-        </Suspense>
+  />
+</Suspense>
+
 
 
         </div>  

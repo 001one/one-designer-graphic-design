@@ -2,85 +2,84 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-let allVideos: HTMLVideoElement[] = [];
-
-interface AutoPlayVideoProps {
-  src: string;
-  poster?: string;
+interface AutoPlayYouTubeProps {
+  videoId: string;
   className?: string;
   height?: string;
   width?: string;
 }
 
-export default function AutoPlayVideo({
-  src,
-  poster,
+export default function AutoPlayYouTube({
+  videoId,
   className = '',
-  height = 'h-[500px]',
+  height = 'h-[300px]',
   width = 'w-full md:w-[500px]',
-}: AutoPlayVideoProps) {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-  const [shouldLoad, setShouldLoad] = useState(false);
+}: AutoPlayYouTubeProps) {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const iframeRef = useRef<HTMLIFrameElement | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
+  // Lazy load + visibility logic
   useEffect(() => {
-    const videoEl = videoRef.current;
-    if (!videoEl) return;
+    const el = containerRef.current;
+    if (!el) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setShouldLoad(true); // Load the video src
-          observer.disconnect(); // Only load once
-        }
+        setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.5 }
+      { threshold: 0.6 }
     );
 
-    observer.observe(videoEl);
-
+    observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
-  // Once video is loaded, add playback logic
+  // Communicate with YouTube iframe
   useEffect(() => {
-    const videoEl = videoRef.current;
-    if (!videoEl || !shouldLoad) return;
+    if (!iframeRef.current || typeof window === 'undefined') return;
 
-    allVideos.push(videoEl);
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          allVideos.forEach((vid) => {
-            if (vid !== videoEl) vid.pause();
-          });
-          videoEl.play().catch((err) => console.warn('Autoplay failed:', err));
-        } else {
-          videoEl.pause();
-        }
-      },
-      { threshold: 0.9 }
-    );
-
-    observer.observe(videoEl);
-
-    return () => {
-      observer.disconnect();
-      allVideos = allVideos.filter((vid) => vid !== videoEl);
+    const postMessage = (command: string) => {
+      iframeRef.current?.contentWindow?.postMessage(
+        JSON.stringify({ event: 'command', func: command, args: [] }),
+        '*'
+      );
     };
-  }, [shouldLoad]);
+
+    if (isVisible) {
+      postMessage('playVideo');
+    } else {
+      postMessage('pauseVideo');
+    }
+  }, [isVisible]);
+
+  const embedUrl = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&rel=0&modestbranding=1`;
 
   return (
-    <video
-      ref={videoRef}
-      poster={poster || '/poster.png'}
-      muted
-      playsInline
-      loop
-      controls={false}
-      preload="none"
-      className={`rounded-xl object-cover ring-2 ring-gray-300 ${width} ${height} ${className}`}
-      {...(shouldLoad ? { src } : {})}
+    <div
+      ref={containerRef}
+      className={`relative overflow-hidden rounded-xl ring-2 ring-gray-300 ${width} ${height} ${className}`}
+    >
+    <>
+  <iframe
+    ref={iframeRef}
+    src={embedUrl}
+    className={`w-full h-full transition-opacity duration-300 ${
+      isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+    }`}
+    allow="autoplay"
+    allowFullScreen
+    title="Autoplay YouTube Video"
+  />
+  {!isVisible && (
+    <img
+      src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
+      alt="Video thumbnail"
+      className="absolute inset-0 w-full h-full object-cover"
     />
+  )}
+</>
+
+    </div>
   );
 }
