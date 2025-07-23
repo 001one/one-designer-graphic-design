@@ -11,7 +11,7 @@ import { Suspense } from "react";
 const page = () => {
   return (
     
-<main className="w-full min-h-screen mt-30 px-2">
+<main className="w-full min-h-screen mt-25 md:mt-20 px-2">
     <Suspense>
      <div className="hidden lg:flex justify-between items-start gap-6 mb-8">
   
@@ -31,16 +31,16 @@ const page = () => {
   <Carousel />
 </div>
 
-      <h1 className="font-bold flex justify-center md:text-6xl text-3xl mt-5 bg-gradient-to-r from-violet-600 via-violet-600 to-indigo-600 bg-clip-text text-transparent">
-  EDUCATING THROUGH ANIMATION – KIRINYAGA UNIVERSITY
+      <h1 className="font-bold flex justify-center md:text-6xl text-3xl mt-5 text-blue-500">
+  TRUSTED 3D ANIMATIONS FOR YOUR PROJECTS
 </h1>
     
-
+{/* 
            <FeaturedServices />
-         <CTA />
+         <CTA /> */}
 
-        <div className="my-12">
-          <h2 className="text-2xl font-semibold mb-4 text-center">
+        <div className="md:my-12 my-3">
+          <h2 className="text-2xl font-semibold mb-4 text-center mt-4">
             Intro Video
           </h2>
         <Suspense>
@@ -67,7 +67,7 @@ const page = () => {
 
 <Suspense>
   <VideoSection
-    videoId="YOUTUBE_ID_4"
+    videoId="-rwacuYwvys"
     text="Experience the finest floral arrangements with same-day delivery in Nairobi. Watch our introduction video to see what makes us unique."
     reverse
   />

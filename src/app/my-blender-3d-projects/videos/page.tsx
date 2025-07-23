@@ -27,13 +27,13 @@ export default async function BlenderProjectPage() {
   const posts = data?.posts || [];
 
   return (
-    <main className="w-full px-4 sm:px-6 lg:px-8 mt-30">
+    <main className="w-full px-4 sm:px-6 lg:px-8 mt-35">
       <h1 className="text-4xl font-bold text-center text-blue-600 mb-6">Blender Project Videos</h1>
 
       <div className="flex justify-end mb-6">
-        <Link href="/my-blender-3d-projects" className="group inline-flex items-center space-x-2  text-white px-4 py-2 rounded-lg hover:underline">
+        <Link href="/my-blender-3d-projects" className="group inline-flex items-center space-x-2  text-white px-4 py-2 rounded-lg hover:underline bg bg-blue-700">
           {/* <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" /> */}
-          <BackButton/>
+          Back to post
 
         </Link>
       </div>
