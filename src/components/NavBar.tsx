@@ -16,7 +16,7 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md my-1 md:my-5 p-4 rounded-lg hover:shadow-2xl  ">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md my-1 md:my-5 p-4 md:p-0 rounded-lg hover:shadow-2xl  ">
 <div className="max-w-7xl mx-auto flex items-center justify-center px-4 py-4 md:px-6 relative">
         {/* Logo */}
         <Link
