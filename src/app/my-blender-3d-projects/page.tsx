@@ -6,6 +6,7 @@ import FAQSection from "@/components/FAQSection";
 import FeaturedServices from "@/components/FeaturedServices";
 import Footer from "@/components/Footer";
 import SidebarContent from "@/components/sidebarcontent";
+import Testimonials from "@/components/Testimonials";
 import { Suspense } from "react";
 
 const page = () => {
@@ -82,6 +83,7 @@ const page = () => {
         <FAQSection />
         {/* <ContactSection /> */}
       </section>
+      <Testimonials />
 
        <CTA />
        {/* <ContactSection />
