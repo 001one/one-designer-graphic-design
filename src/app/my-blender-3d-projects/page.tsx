@@ -9,6 +9,15 @@ import SidebarContent from "@/components/sidebarcontent";
 import Testimonials from "@/components/Testimonials";
 import { Suspense } from "react";
 
+
+const slides = [
+  { image: "/blender/1.jpg", text: "Glasses 3D Visualisation" },
+  { image: "/blender/2.jpg", text: "Interior 3D Visualisation" },
+  { image: "/blender/3.jpg", text: "Purse 3D Visualisation" },
+  { image: "/blender/4.jpg", text: "Soda 3D Visualisation" },
+  { image: "/blender/5.jpg", text: "Zack D. 3D Visualisation" },
+];
+
 const page = () => {
   return (
     
@@ -20,7 +29,7 @@ const page = () => {
           <CategorySidebar/>
     </div> */}
     <div className="w-full min-h-[75vh] flex justify-center items-center">
-  <Carousel />
+  <Carousel slides={slides} />
 </div>
 
          {/* <div className="w-1/4">
@@ -29,7 +38,7 @@ const page = () => {
        </div>
        {/* Carousel for Small Screens */}
       <div className="lg:hidden">
-  <Carousel />
+  <Carousel slides={slides} />
 </div>
 
       <h1 className="font-bold flex justify-center md:text-6xl text-3xl mt-5 text-blue-500">
@@ -47,14 +56,14 @@ const page = () => {
         <Suspense>
   <VideoSection
     videoId="EVhjfNgcrIU"
-    text="Explore how Kirinyaga University students use animation to promote responsible computing. Watch our intro video and see how storytelling meets technology."
+    text="Experience a high-end 3D animation of Chanel perfume. A showcase of luxury design, realism, and visual storytelling using Blender."
   />
 </Suspense>
 
 <Suspense>
   <VideoSection
     videoId="NUv86BCLN7U"
-    text="Experience the finest floral arrangements with same-day delivery in Nairobi. Watch our introduction video to see what makes us unique."
+    text="Step inside a modern 3D-rendered interior. A clean, realistic space designed in Blender to showcase lighting, layout, and atmosphere."
     reverse
   />
 </Suspense>
@@ -62,14 +71,14 @@ const page = () => {
 <Suspense>
   <VideoSection
     videoId="DR5gizDUILA"
-    text="Experience the finest floral arrangements with same-day delivery in Nairobi. Watch our introduction video to see what makes us unique."
+    text="Go behind the scenes of the Zack D animation. A glimpse into the process, creativity, and Blender workflow behind this short film project."
   />
 </Suspense>
 
 <Suspense>
   <VideoSection
     videoId="-rwacuYwvys"
-    text="Experience the finest floral arrangements with same-day delivery in Nairobi. Watch our introduction video to see what makes us unique."
+    text="A refreshing 3D soda animation brought to life with vibrant colors, liquid motion, and realistic materials — all created in Blender."
     reverse
   />
 </Suspense>

@@ -17,6 +17,15 @@ import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
 
 
+const slides = [
+  { image: "/wedding.jpg", text: "Wedding Moments" },
+  { image: "/travel.jpg", text: "Explore the World" },
+  { image: "/church.jpg", text: "Spiritual Gatherings" },
+  { image: "/thumb.jpg", text: "Creative Snapshots" },
+  { image: "/party.jpg", text: "Joyful Celebrations" },
+];
+
+
 
 export const metadata: Metadata = {
   title: "NEEO Designers | Best Graphic Design Services – Thumbnails, Logos & More",
@@ -80,7 +89,7 @@ const posts = data?.posts || [];
 <div className="flex flex-col lg:flex-row justify-center items-center lg:items-start gap-6 mb-8">
   {/* Carousel */}
   <div className="w-full lg:w-3/4 flex justify-center mt-5">
-    <Carousel />
+    <Carousel slides={slides} />
   </div>
 
   {/* Sidebar (Visible on Large Screens) */}

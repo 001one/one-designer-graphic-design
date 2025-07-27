@@ -1,17 +1,15 @@
+// Carousel.jsx or Carousel.tsx
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const slides = [
-  { image: "/wedding.jpg", text: "Wedding Moments" },
-  { image: "/travel.jpg", text: "Explore the World" },
-  { image: "/church.jpg", text: "Spiritual Gatherings" },
-  { image: "/thumb.jpg", text: "Creative Snapshots" },
-  { image: "/party.jpg", text: "Joyful Celebrations" },
-];
+type Slide = {
+  image: string;
+  text: string;
+};
 
-const Carousel = () => {
+const Carousel = ({ slides }: { slides: Slide[] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -35,12 +33,11 @@ const Carousel = () => {
     <div className="relative w-full h-[350px] sm:h-[400px] md:h-[450px] lg:h-[900px] overflow-hidden rounded-lg shadow-lg mx-auto">
       <div className="relative w-full h-full flex items-center">
         {/* Left Text */}
-       <div className="absolute bottom-6 left-6 z-10 text-white">
-  <h2 className="text-2xl md:text-4xl font-extrabold drop-shadow-md">
-    {slides[currentIndex].text}
-  </h2>
-</div>
-
+        <div className="absolute bottom-6 left-6 z-10 text-white">
+          <h2 className="text-2xl md:text-4xl font-extrabold drop-shadow-md">
+            {slides[currentIndex].text}
+          </h2>
+        </div>
 
         {/* Right Image */}
         <div className="absolute inset-0 w-full h-full">
@@ -51,7 +48,7 @@ const Carousel = () => {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-black/30" /> {/* Optional overlay */}
+          <div className="absolute inset-0 bg-black/30" />
         </div>
       </div>
 
