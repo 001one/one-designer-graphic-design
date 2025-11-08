@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Hero: React.FC = () => {
   return (
- <section className="flex flex-col lg:flex-row items-center justify-between px-6 md:px-16 py-12 bg-gradient-to-b from-white via-[#f5b979] to-[#ffffff]">
+ <section id="home" className="flex flex-col lg:flex-row items-center justify-between px-6 md:px-16 py-12 bg-gradient-to-b from-white via-[#f5b979] to-[#ffffff]">
 
 
       {/* Left Content */}
@@ -30,7 +30,7 @@ const Hero: React.FC = () => {
      {/* Right Image + Description */}
 <div className="md:w-1/2 mt-10 md:mt-0 flex flex-col items-center justify-center relative">
   <Image
-    src="/profile.png"
+    src="/neeo.png"
     alt="Madison"
     width={450}
     height={800}

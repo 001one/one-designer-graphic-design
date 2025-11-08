@@ -8,15 +8,27 @@ interface Project {
 }
 
 const projects: Project[] = [
+    {
+    title: "Check my Github repository",
+    image: "/github.png",
+    link: "https://github.com/001one/",
+  },
+
   {
     title: "E-commerce Flower App",
     image: "/project1.jpg",
     link: "https://www.happierparadiseflorist.com/",
-  },
+  },  
+   
   {
     title: "Graphic Design Mobile UI",
     image: "/project2.jpg",
     link: "https://www.onedesignersdesign.com/",
+  },
+ {
+    title: "Current Website still in development",
+    image: "/linus.png",
+    link: "https://neeotech.vercel.app/best-gpus-to-buy-in-2026",
   },
 ];
 

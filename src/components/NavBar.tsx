@@ -48,7 +48,7 @@ const Navbar = () => {
         </nav>
 
         {/* Call-to-Action Button */}
-     <div className="hidden md:block absolute right-4 md:right-6">
+     {/* <div className="hidden md:block absolute right-4 md:right-6">
 
   <Link
     href="/my-blender-3d-projects/videos"
@@ -57,7 +57,7 @@ const Navbar = () => {
    My Blender 3D Projects YouTube videos
     <ArrowRight className="w-5 h-5 transform transition-transform duration-300 group-hover:translate-x-5" />
   </Link>
-</div>
+</div> */}
 
 
         {/* Mobile Menu Button */}
