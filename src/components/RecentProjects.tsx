@@ -8,27 +8,30 @@ interface Project {
 }
 
 const projects: Project[] = [
-    {
-    title: "Check my Github repository",
-    image: "/github.png",
-    link: "https://github.com/001one/",
-  },
-
   {
     title: "E-commerce Flower App",
     image: "/project1.jpg",
     link: "https://www.happierparadiseflorist.com/",
-  },  
-   
+  },
+  {
+    title: "Treasury Management System",
+    image: "/treasury.png",
+    link: "https://ict-help-desk-frontend.vercel.app/",
+  },
+  {
+    title: "Current Website still in development",
+    image: "/linus.png",
+    link: "https://neeotech.vercel.app/best-gpus-to-buy-in-2026",
+  },
   {
     title: "Graphic Design Mobile UI",
     image: "/project2.jpg",
     link: "https://www.onedesignersdesign.com/",
   },
- {
-    title: "Current Website still in development",
-    image: "/linus.png",
-    link: "https://neeotech.vercel.app/best-gpus-to-buy-in-2026",
+  {
+    title: "Check my Github repository",
+    image: "/github.png",
+    link: "https://github.com/001one/",
   },
 ];
 
@@ -57,7 +60,9 @@ const RecentProjects = () => {
               />
             </div>
             <div className="p-4">
-              <h3 className="text-2xl font-semibold text-orange-600 active:text-blue-600 hover:text-blue-600 transition duration-300">{project.title}</h3>
+              <h3 className="text-2xl font-semibold text-orange-600 active:text-blue-600 hover:text-blue-600 transition duration-300">
+                {project.title}
+              </h3>
             </div>
           </Link>
         ))}
